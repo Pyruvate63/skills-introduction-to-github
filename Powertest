@@ -14,15 +14,15 @@ def check_power_limits(power):
     lower_limit = 0.9
     upper_limit = 5.1
     if lower_limit <= power <= upper_limit:
-        print("POWER_TEST: Power consumption within limits.")
+        print("POWER_TEST: Power consumption within limits (OK).")
         return True
     else:
-        print("POWER_TEST: Power consumption OUT OF LIMITS!")
+        print("POWER_TEST: Power consumption OUT OF LIMITS (FAILURE)! Check device immediately.")
         return False
 
 if __name__ == "__main__":
-    print("POWER_TEST: Starting power test...")
+    print("POWER_TEST: Starting power test sequence...")
     power = measure_power()
     check_power_limits(power)
     time.sleep(1)
-    print("POWER_TEST: Power test finished.")
+    print("POWER_TEST: Power test sequence finished.")
