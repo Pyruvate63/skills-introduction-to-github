@@ -26,3 +26,4 @@ if __name__ == "__main__":
     check_power_limits(power)
     time.sleep(1)
     print("POWER_TEST: Power test sequence finished.")
+Update number 3..
