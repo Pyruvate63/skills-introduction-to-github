@@ -1,0 +1,28 @@
+# power_test.py
+
+import time
+import random
+
+def measure_power():
+    """Simulates measuring power consumption."""
+    power_value = random.uniform(1.0, 5.0)
+    print(f"POWER_TEST: Measured power consumption: {power_value:.2f} W")
+    return power_value
+
+def check_power_limits(power):
+    """Checks if the measured power is within acceptable limits."""
+    lower_limit = 0.9
+    upper_limit = 5.1
+    if lower_limit <= power <= upper_limit:
+        print("POWER_TEST: Power consumption within limits.")
+        return True
+    else:
+        print("POWER_TEST: Power consumption OUT OF LIMITS!")
+        return False
+
+if __name__ == "__main__":
+    print("POWER_TEST: Starting power test...")
+    power = measure_power()
+    check_power_limits(power)
+    time.sleep(1)
+    print("POWER_TEST: Power test finished.")
