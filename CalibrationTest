@@ -1,0 +1,26 @@
+# sensor_calibration.py
+
+import time
+import random
+
+def calibrate_sensor():
+    """Simulates sensor calibration."""
+    calibration_value = random.randint(0, 100)
+    print(f"CALIBRATION: Sensor calibrated with value: {calibration_value}")
+    return calibration_value
+
+def check_calibration_status(value):
+    """Checks if the calibration value is acceptable."""
+    if 10 <= value <= 90:
+        print("CALIBRATION: Calibration successful.")
+        return True
+    else:
+        print("CALIBRATION: Calibration failed.")
+        return False
+
+if __name__ == "__main__":
+    print("CALIBRATION: Starting sensor calibration...")
+    calibration = calibrate_sensor()
+    check_calibration_status(calibration)
+    time.sleep(1.5)
+    print("CALIBRATION: Sensor calibration finished.")

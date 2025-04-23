@@ -1,0 +1,28 @@
+# master_test_suite.py
+
+import subprocess
+import os
+
+def run_test(script_name):
+    """Runs a given test script as a subprocess."""
+    print(f"MASTER: Starting execution of {script_name}...")
+    try:
+        result = subprocess.run(['python', script_name], capture_output=True, text=True, check=True)
+        print(f"MASTER: {script_name} completed successfully.")
+        print(f"MASTER: Output from {script_name}:\n{result.stdout}")
+    except subprocess.CalledProcessError as e:
+        print(f"MASTER: Error executing {script_name}:")
+        print(e.stderr)
+    except FileNotFoundError:
+        print(f"MASTER: Error: Script '{script_name}' not found.")
+
+if __name__ == "__main__":
+    print("MASTER: Starting the main test suite...")
+    run_test("power_test.py")
+    run_test("sensor_calibration.py")
+
+    run_temperature_test = input("MASTER: Run temperature test? (y/n): ").lower()
+    if run_temperature_test == 'y':
+        run_test("temperature_test.py")
+
+    print("MASTER: Test suite execution finished.")
